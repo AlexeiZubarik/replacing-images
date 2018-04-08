@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    height: 1400px;
+}
+
+body div {
+    margin: 10px;
+}
+
+.container {
+    width: 1140px;
+    margin: 0 auto;
+    background: #91ffce;
+    height: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.fake-img {
+    margin: 0;
+    border: 2px dashed #000;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+}
