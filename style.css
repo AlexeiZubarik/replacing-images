@@ -14,14 +14,15 @@ body div {
     height: 100%;
 }
 
-.hide {
-    display: none;
-}
-
 .fake-img {
+    display: table-cell;
     margin: 0;
     border: 2px dashed #000;
     box-sizing: border-box;
     text-align: center;
     vertical-align: middle;
+}
+
+.hide {
+    display: none;
 }

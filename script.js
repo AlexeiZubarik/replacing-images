@@ -35,7 +35,12 @@ function createDivElement(imgElem) {
     div.className = 'fake-img hide';
     div.style.height = `${height}px`;
     div.style.width = `${width}px`;
-    div.innerText = alt;
+
+    if (alt) {
+        div.innerText = alt;
+    } else {
+        div.innerText = 'Нет описания к изображению';
+    }
 
     return div;
 }
