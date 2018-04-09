@@ -1,20 +1,8 @@
-/*$(document).ready(function () {
-    $('#button').click(function () {
-        $('img').toggleClass('hide');
-        const imgs = document.getElementsByTagName('img');
-        console.log(imgs);
-        for (let i = 0; i < imgs.length; i++) {
-            console.log(imgs[i].height + 'x' + imgs[i].width);          
-        }
-    });
-});*/
 window.onload = function() {
     const imgGetButton = document.getElementById('button');
-    console.log(imgGetButton);
 
     imgGetButton.onclick = function() {
         const imgs = document.getElementsByTagName('img');
-        console.log(typeof imgs, imgs);
 
         for (let i = 0; i < imgs.length; i++) {
             removeElement(imgs[i]);
@@ -23,21 +11,18 @@ window.onload = function() {
 };
 
 function removeElement(element) {
-    let div = null;    
-    console.log(element.previousElementSibling);
-    if (element.previousElementSibling) {
-        if (element.previousElementSibling.className.split(' ').indexOf('fake-img')) {
-            div = element.previousElementSibling;
-        } else {
-            div = createDivElement(element);
-        }        
+    let div = null
+    const prevElement = element.previousSibling;
+
+    if (prevElement.className === 'fake-img' || prevElement.className === 'fake-img hide') {
+        div = prevElement;          
     } else {
-        div = createDivElement(element);
-    }   
+        div = createDivElement(element);        
+        element.parentNode.insertBefore(div, element);
+    }    
     
     toggle(element, 'hide');
-    toggle(div, 'hide');    
-    element.parentNode.insertBefore(div, element);
+    toggle(div, 'hide'); 
 }
 
 
@@ -51,7 +36,6 @@ function createDivElement(imgElem) {
     div.style.height = `${height}px`;
     div.style.width = `${width}px`;
     div.innerText = alt;
-    console.log(`${height}x${width}`);
 
     return div;
 }
